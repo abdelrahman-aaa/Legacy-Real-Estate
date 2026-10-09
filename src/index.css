@@ -1,0 +1,611 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Brand Colors */
+  --primary: #1a4a3a;
+  --primary-light: #2d6b55;
+  --primary-dark: #0f2d22;
+  --primary-hover: #245e4a;
+  --accent-gold: #c9a84c;
+  --accent-gold-light: #e8c96a;
+
+  /* Neutral Colors */
+  --white: #ffffff;
+  --off-white: #f8f6f2;
+  --light-gray: #f2f0ec;
+  --mid-gray: #e0ddd7;
+  --text-muted: #8a8880;
+  --text-body: #4a4845;
+  --text-dark: #1c1a18;
+
+  /* UI Colors */
+  --bg: #ffffff;
+  --bg-section: #f8f6f2;
+  --border: #e5e2dc;
+  --shadow-sm: 0 2px 8px rgba(26, 74, 58, 0.08);
+  --shadow-md: 0 8px 24px rgba(26, 74, 58, 0.12);
+  --shadow-lg: 0 16px 48px rgba(26, 74, 58, 0.18);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-body);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  outline: none;
+}
+
+input, select {
+  font-family: var(--font-body);
+  outline: none;
+  border: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Utility */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 16px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent-gold);
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.section-title span {
+  color: var(--primary);
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--primary);
+  padding: 13px 30px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary);
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-gold);
+  color: var(--primary-dark);
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--accent-gold);
+  cursor: pointer;
+}
+
+.btn-gold:hover {
+  background: var(--accent-gold-light);
+  border-color: var(--accent-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ─── RTL / Arabic Support ────────────────────────────────────────────────── */
+
+/* When Arabic is active, switch to Cairo font family */
+:root[dir="rtl"],
+:root[dir="rtl"] body {
+  font-family: 'Cairo', system-ui, sans-serif;
+}
+
+:root[dir="rtl"] h1,
+:root[dir="rtl"] h2,
+:root[dir="rtl"] h3,
+:root[dir="rtl"] h4 {
+  font-family: 'Cairo', system-ui, sans-serif;
+  font-weight: 700;
+}
+
+/* Flip section-label accent bar side */
+:root[dir="rtl"] .section-label::before {
+  order: 1;
+}
+
+/* Logical spacing utilities for RTL-safe buttons / flex rows */
+:root[dir="rtl"] .btn-primary,
+:root[dir="rtl"] .btn-outline,
+:root[dir="rtl"] .btn-gold {
+  flex-direction: row-reverse;
+}
+
+/* Prevent SVG directional arrows from mirroring phone/price content */
+:root[dir="rtl"] .hero-btn-primary svg,
+:root[dir="rtl"] .btn-primary svg,
+:root[dir="rtl"] .btn-view-details-outline svg,
+:root[dir="rtl"] .btn-view-details-filled svg {
+  transform: scaleX(-1);
+}
+
+/* Ensure mobile menu links align right in Arabic */
+:root[dir="rtl"] .navbar-mobile-link {
+  text-align: right;
+}
+
+/* RTL container text alignment */
+:root[dir="rtl"] .properties-breadcrumb,
+:root[dir="rtl"] .details-top-nav {
+  flex-direction: row-reverse;
+}
+
+/* Fix breadcrumb separator direction */
+:root[dir="rtl"] .breadcrumb-sep {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+/* Spec table rows should reverse in RTL */
+:root[dir="rtl"] .spec-row {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Feature pills row direction */
+:root[dir="rtl"] .about-feature {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+:root[dir="rtl"] .about-feature-text {
+  text-align: right;
+}
+
+/* Trust bar items */
+:root[dir="rtl"] .trust-item {
+  flex-direction: row-reverse;
+}
+
+/* Footer align text right in RTL */
+:root[dir="rtl"] .footer-links,
+:root[dir="rtl"] .footer-desc,
+:root[dir="rtl"] .footer-contact-item,
+:root[dir="rtl"] .footer-bottom-text {
+  text-align: right;
+}
+
+:root[dir="rtl"] .footer-contact-item {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .footer-logo {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .footer-socials {
+  justify-content: flex-end;
+}
+
+/* Fix filter toolbar layout */
+:root[dir="rtl"] .filter-top-row,
+:root[dir="rtl"] .filter-dropdowns-row,
+:root[dir="rtl"] .filter-top-actions {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .filter-verified-counter {
+  flex-direction: row-reverse;
+}
+
+/* Property card footer */
+:root[dir="rtl"] .property-card-footer {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .property-card-location-row {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .media-badges-top-left {
+  left: auto;
+  right: 14px;
+}
+
+:root[dir="rtl"] .badge-featured-gold {
+  right: auto;
+  left: 14px;
+}
+
+:root[dir="rtl"] .media-photo-counter-badge {
+  left: auto;
+  right: 12px;
+}
+
+:root[dir="rtl"] .media-badge-bottom-right {
+  right: auto;
+  left: 12px;
+}
+
+/* ── Property Card RTL Support ── */
+:root[dir="rtl"] .property-card-content {
+  text-align: right;
+}
+
+:root[dir="rtl"] .property-card-location-row {
+  flex-direction: row;
+}
+
+:root[dir="rtl"] .property-card-title {
+  text-align: right;
+  font-family: 'Cairo', system-ui, sans-serif;
+}
+
+:root[dir="rtl"] .property-card-desc {
+  text-align: right;
+}
+
+:root[dir="rtl"] .property-card-specs {
+  direction: rtl;
+}
+
+:root[dir="rtl"] .spec-column:not(:last-child) {
+  border-right: none;
+  border-left: 1px solid #eee9e0;
+}
+
+:root[dir="rtl"] .spec-number {
+  direction: ltr;
+  display: inline-block;
+  unicode-bidi: embed;
+}
+
+:root[dir="rtl"] .property-card-footer {
+  flex-direction: row;
+}
+
+:root[dir="rtl"] .footer-valuation {
+  text-align: right;
+}
+
+:root[dir="rtl"] .valuation-curr {
+  margin-left: 0;
+  margin-right: 4px;
+}
+
+:root[dir="rtl"] .btn-view-details-outline,
+:root[dir="rtl"] .btn-view-details-filled {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .btn-view-details-outline:hover svg,
+:root[dir="rtl"] .btn-view-details-filled:hover svg {
+  transform: scaleX(-1) translateX(-3px);
+}
+
+/* Details metric bar */
+:root[dir="rtl"] .details-specs-banner {
+  direction: ltr;
+}
+
+/* Details sidebar card header */
+:root[dir="rtl"] .cta-card-header,
+:root[dir="rtl"] .cta-inquiry-form,
+:root[dir="rtl"] .cta-success-message {
+  text-align: right;
+}
+
+:root[dir="rtl"] .cta-direct-actions {
+  align-items: flex-end;
+}
+
+:root[dir="rtl"] .cta-phone-box {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .cta-divider-or {
+  direction: rtl;
+}
+
+/* Testimonial cards */
+:root[dir="rtl"] .testimonial-card {
+  text-align: right;
+}
+
+:root[dir="rtl"] .testimonial-author {
+  flex-direction: row-reverse;
+}
+
+/* Nav logo */
+:root[dir="rtl"] .navbar-logo {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .navbar-logo-text {
+  text-align: right;
+}
+
+:root[dir="rtl"] .navbar-inner {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .navbar-nav {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .navbar-actions {
+  flex-direction: row-reverse;
+}
+
+/* Rental banner actions */
+:root[dir="rtl"] .rental-banner-actions {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .rental-banner-content {
+  text-align: right;
+}
+
+/* Form labels */
+:root[dir="rtl"] label,
+:root[dir="rtl"] .form-group label {
+  display: block;
+  text-align: right;
+}
+
+:root[dir="rtl"] input,
+:root[dir="rtl"] textarea,
+:root[dir="rtl"] select {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Keep phone number inputs LTR */
+:root[dir="rtl"] input[type="tel"],
+:root[dir="rtl"] input[type="email"] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Details back button */
+:root[dir="rtl"] .details-back-btn {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .details-back-btn svg {
+  transform: scaleX(-1);
+}
+
+/* Details title row */
+:root[dir="rtl"] .details-title-row {
+  flex-direction: row-reverse;
+}
+
+/* Section header */
+:root[dir="rtl"] .section-header {
+  flex-direction: row-reverse;
+}
+
+/* Properties header */
+:root[dir="rtl"] .properties-header {
+  flex-direction: row-reverse;
+}
+
+:root[dir="rtl"] .properties-header-left {
+  text-align: right;
+}
+
+/* Details badge row */
+:root[dir="rtl"] .details-badges-row {
+  flex-direction: row-reverse;
+}
+
+/* Details content grid */
+:root[dir="rtl"] .details-location-text {
+  flex-direction: row-reverse;
+}
+
+/* Modal content */
+:root[dir="rtl"] .modal-body {
+  text-align: right;
+}
+
+/* CTA section layout direction */
+:root[dir="rtl"] .about-content {
+  text-align: right;
+}
+
+:root[dir="rtl"] .about-features-list {
+  text-align: right;
+}
+
+/* Hero text in RTL */
+:root[dir="rtl"] .hero-text {
+  text-align: right;
+}
+
+:root[dir="rtl"] .hero-badge {
+  flex-direction: row-reverse;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+:root[dir="rtl"] .hero-actions {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* Fix card description */
+:root[dir="rtl"] .property-card-content {
+  text-align: right;
+}
+
+/* Valuation label */
+:root[dir="rtl"] .footer-valuation,
+:root[dir="rtl"] .valuation-label {
+  text-align: right;
+}
+
+/* Spec columns should remain centered */
+:root[dir="rtl"] .spec-column {
+  text-align: center;
+}
+
+/* Fix filter search row */
+:root[dir="rtl"] .filter-search-box {
+  flex-direction: row-reverse;
+}
+

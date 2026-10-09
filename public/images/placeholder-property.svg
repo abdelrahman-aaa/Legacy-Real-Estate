@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142a22"/>
+      <stop offset="50%" stop-color="#1c3b31"/>
+      <stop offset="100%" stop-color="#0f201a"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ecd9a5"/>
+      <stop offset="50%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#9a7a2a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(201, 168, 76, 0.15)"/>
+      <stop offset="100%" stop-color="rgba(201, 168, 76, 0)"/>
+    </radialGradient>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+  <circle cx="400" cy="270" r="180" fill="url(#glow)"/>
+  
+  <g transform="translate(400, 240)" text-anchor="middle">
+    <!-- Luxury Architectural Villa Outline Icon -->
+    <path d="M-60 40 L0 -20 L60 40 L50 40 L50 80 L-50 80 L-50 40 Z" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M-20 80 L-20 45 L20 45 L20 80" fill="none" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    <path d="M-40 25 L-40 0 L-25 0 L-25 10" fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
+    <line x1="-70" y1="80" x2="70" y2="80" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Minimalist Sun / Compass -->
+    <circle cx="0" cy="-45" r="8" fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
+    <line x1="0" y1="-60" x2="0" y2="-55" stroke="url(#goldGrad)" stroke-width="2"/>
+    <line x1="0" y1="-35" x2="0" y2="-30" stroke="url(#goldGrad)" stroke-width="2"/>
+    <line x1="-15" y1="-45" x2="-10" y2="-45" stroke="url(#goldGrad)" stroke-width="2"/>
+    <line x1="10" y1="-45" x2="15" y2="-45" stroke="url(#goldGrad)" stroke-width="2"/>
+  </g>
+  
+  <text x="400" y="380" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="600" fill="#ecd9a5" text-anchor="middle" letter-spacing="1.5">
+    LEGACY REAL ESTATE
+  </text>
+  <text x="400" y="412" font-family="'Inter', -apple-system, sans-serif" font-size="12" font-weight="600" fill="#9cb1a8" text-anchor="middle" letter-spacing="3">
+    VERIFIED PORTFOLIO RESIDENCE
+  </text>
+</svg>
