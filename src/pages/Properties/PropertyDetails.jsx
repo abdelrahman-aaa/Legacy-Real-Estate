@@ -225,28 +225,28 @@ export default function PropertyDetails({ property, onBack, onNavigate }) {
                   <span className="spec-value">{p.finishing}</span>
                 </div>
               )}
-              {property.delivery && (
+              {(p.delivery || property.delivery) && (
                 <div className="spec-row">
                   <span className="spec-name">{t('details.delivery')}</span>
-                  <span className="spec-value">{property.delivery}</span>
+                  <span className="spec-value">{p.delivery || property.delivery}</span>
                 </div>
               )}
-              {property.garden && (
+              {(p.garden || property.garden) && (
                 <div className="spec-row">
                   <span className="spec-name">{t('details.privateGarden')}</span>
-                  <span className="spec-value">{property.garden}</span>
+                  <span className="spec-value">{p.garden || property.garden}</span>
                 </div>
               )}
-              {property.terrace && (
+              {(p.terrace || property.terrace) && (
                 <div className="spec-row">
                   <span className="spec-name">{t('details.terrace')}</span>
-                  <span className="spec-value">{property.terrace}</span>
+                  <span className="spec-value">{p.terrace || property.terrace}</span>
                 </div>
               )}
-              {property.parking && (
+              {(p.parking || property.parking) && (
                 <div className="spec-row">
                   <span className="spec-name">{t('details.parking')}</span>
-                  <span className="spec-value">{property.parking}</span>
+                  <span className="spec-value">{p.parking || property.parking}</span>
                 </div>
               )}
             </div>
@@ -275,7 +275,7 @@ export default function PropertyDetails({ property, onBack, onNavigate }) {
           </div>
 
           {/* Features and Amenities */}
-          {Array.isArray(property.features) && property.features.length > 0 && (
+          {Array.isArray(p.features || property.features) && (p.features || property.features).length > 0 && (
             <div className="details-card-block">
               <h2 className="details-section-heading">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -284,7 +284,7 @@ export default function PropertyDetails({ property, onBack, onNavigate }) {
                 {t('details.amenities')}
               </h2>
               <div className="details-features-grid">
-                {property.features.map((feature, idx) => (
+                {(p.features || property.features).map((feature, idx) => (
                   <div key={idx} className="details-feature-pill">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#256e54" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12"/>
