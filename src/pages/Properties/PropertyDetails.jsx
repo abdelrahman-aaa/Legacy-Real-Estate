@@ -137,13 +137,13 @@ export default function PropertyDetails({ property, onBack, onNavigate }) {
                 <div className="details-metric-lbl">{t('details.totalArea')}</div>
               </div>
             )}
-            {p.bedrooms !== undefined && (
+            {p.bedrooms !== undefined && property.id !== 4 && (
               <div className="details-metric-item">
                 <div className="details-metric-val">{p.bedrooms}</div>
                 <div className="details-metric-lbl">{t('details.bedrooms')}</div>
               </div>
             )}
-            {p.bathrooms !== undefined && (
+            {p.bathrooms !== undefined && property.id !== 4 && (
               <div className="details-metric-item">
                 <div className="details-metric-val">{p.bathrooms}</div>
                 <div className="details-metric-lbl">{t('details.bathrooms')}</div>
@@ -201,13 +201,13 @@ export default function PropertyDetails({ property, onBack, onNavigate }) {
                   <span className="spec-value">{p.area}</span>
                 </div>
               )}
-              {p.bedrooms !== undefined && (
+              {p.bedrooms !== undefined && property.id !== 4 && (
                 <div className="spec-row">
                   <span className="spec-name">{t('details.bedroomsLabel')}</span>
                   <span className="spec-value">{p.bedrooms}</span>
                 </div>
               )}
-              {p.bathrooms !== undefined && (
+              {p.bathrooms !== undefined && property.id !== 4 && (
                 <div className="spec-row">
                   <span className="spec-name">{t('details.bathroomsLabel')}</span>
                   <span className="spec-value">{p.bathrooms}</span>
@@ -262,7 +262,15 @@ export default function PropertyDetails({ property, onBack, onNavigate }) {
               {t('details.propDescription')}
             </h2>
             <div className="details-description-body">
-              <p>{p.fullDescription || p.description}</p>
+              {property.id === 4 ? (
+                <div className="details-listings-breakdown">
+                  {(p.fullDescription || p.description || '').split('\n').filter(l => l.trim()).map((line, i) => (
+                    <p key={i} className="details-listing-line">{line.trim()}</p>
+                  ))}
+                </div>
+              ) : (
+                <p>{p.fullDescription || p.description}</p>
+              )}
             </div>
           </div>
 
@@ -367,7 +375,7 @@ export default function PropertyDetails({ property, onBack, onNavigate }) {
 
             <div className="cta-direct-actions">
               <a
-                href={`https://wa.me/201001234567?text=${encodedWhatsAppText}`}
+                href={`https://wa.me/201027880569?text=${encodedWhatsAppText}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-whatsapp-btn"
@@ -395,7 +403,8 @@ export default function PropertyDetails({ property, onBack, onNavigate }) {
                 <span className="cta-phone-icon">📞</span>
                 <div>
                   <span className="cta-phone-tag">{t('details.directLine')}</span>
-                  <a href="tel:+201001234567" className="cta-phone-val" style={{ direction: 'ltr', display: 'block' }}>+20 100 123 4567</a>
+                  <a href="tel:01514174050" className="cta-phone-val" style={{ direction: 'ltr', display: 'block' }}>0151 417 4050</a>
+                  <a href="tel:01027880569" className="cta-phone-val" style={{ direction: 'ltr', display: 'block', marginTop: 2 }}>01027880569</a>
                 </div>
               </div>
             </div>

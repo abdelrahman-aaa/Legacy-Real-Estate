@@ -120,19 +120,28 @@ export default function PropertyCard({ property, onViewDetails }) {
           {p.title}
         </h2>
 
-        <p className="property-card-desc">
-          {p.description}
-        </p>
+        {/* Description: line-by-line for id 4, plain paragraph for others */}
+        {property.id === 4 ? (
+          <div className="property-card-desc property-card-desc--listings">
+            {(p.description || '').split('\n').filter(l => l.trim()).map((line, i) => (
+              <p key={i} className="listing-line">{line.trim()}</p>
+            ))}
+          </div>
+        ) : (
+          <p className="property-card-desc">{p.description}</p>
+        )}
 
-        {/* 3-Column Metrics */}
-        <div className="property-card-specs">
-          {specs.map((s, idx) => (
-            <div key={idx} className="spec-column">
-              <div className="spec-number">{s.val}</div>
-              <div className="spec-label">{s.label}</div>
-            </div>
-          ))}
-        </div>
+        {/* 3-Column Metrics — hidden for id 4 (no beds/baths/area) */}
+        {property.id !== 4 && (
+          <div className="property-card-specs">
+            {specs.map((s, idx) => (
+              <div key={idx} className="spec-column">
+                <div className="spec-number">{s.val}</div>
+                <div className="spec-label">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Valuation & Details Action */}
         <div className="property-card-footer">

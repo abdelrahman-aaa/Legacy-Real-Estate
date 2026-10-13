@@ -514,24 +514,32 @@ export default function Properties({ onNavigate }) {
 
               <div style={{
                 background: '#f8f6f2', padding: '16px', borderRadius: 8,
-                fontSize: 20, fontWeight: 800, color: '#142a22', letterSpacing: 0.5,
-                marginBottom: 24, direction: 'ltr'
+                fontSize: 18, fontWeight: 800, color: '#142a22', letterSpacing: 0.5,
+                marginBottom: 24, direction: 'ltr', display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'center'
               }}>
-                {t('callDesk.phone')}
+                <a href="tel:01514174050" style={{ color: 'inherit', textDecoration: 'none' }}>0151 417 4050</a>
+                <a href="tel:01027880569" style={{ color: 'inherit', textDecoration: 'none' }}>01027880569</a>
               </div>
 
-              <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
+              <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
                 <a
-                  href="tel:+201001234567"
+                  href="tel:01514174050"
                   className="modal-primary-btn"
                   style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 >
-                  {t('callDesk.callBtn')}
+                  📞 0151 417 4050
+                </a>
+                <a
+                  href="tel:01027880569"
+                  className="modal-primary-btn"
+                  style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  📞 01027880569
                 </a>
                 <button
                   className="modal-secondary-btn"
                   onClick={() => {
-                    navigator.clipboard.writeText('+201001234567')
+                    navigator.clipboard.writeText('0151 417 4050 - 01027880569')
                     alert(t('callDesk.copyAlert'))
                   }}
                 >

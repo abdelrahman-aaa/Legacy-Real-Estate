@@ -616,7 +616,11 @@ function Footer({ onNavigate }) {
             </div>
             <div className="footer-contact-item">
               <span className="footer-contact-icon">📞</span>
-              <span className="footer-contact-text">+20 100 123 4567<br />+20 2 3855 0000</span>
+              <span className="footer-contact-text" style={{ direction: 'ltr' }}>
+                <a href="tel:01514174050" style={{ color: 'inherit', textDecoration: 'none' }}>0151 417 4050</a>
+                <br />
+                <a href="tel:01027880569" style={{ color: 'inherit', textDecoration: 'none' }}>01027880569</a>
+              </span>
             </div>
           </div>
         </div>
